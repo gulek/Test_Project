@@ -1,0 +1,4 @@
+file Output/test.elf
+set arm abi AAPCS
+target remote :61234
+load
