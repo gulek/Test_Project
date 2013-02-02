@@ -55,7 +55,7 @@ void TAMP_STAMP_IRQHandler_v(void)              __attribute__ ((interrupt, weak,
 void RTC_WKUP_IRQHandler_v(void)                __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void FLASH_IRQHandler_v(void)                   __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void RCC_IRQHandler_v(void)                     __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
-void EXTI0_IRQHandler_v(void)                   __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
+void EXTI0_IRQHandler_v(void);
 void EXTI1_IRQHandler_v(void)                   __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void EXTI2_IRQHandler_v(void)                   __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void EXTI3_IRQHandler_v(void)                   __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));

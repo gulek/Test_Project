@@ -8,11 +8,14 @@
  *                    History:                                                *
  * - Date ----|- Version --|- Description ----------------------------------- *
  * 2013-02-02 |          1 | file created                                     * 
+ * 2013-02-02 |          2 | added waiting for USER_BTN interrupt             * 
  *****************************************************************************/
 
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 #include "gpio_config.h"
+#include "exti_config.h"
+#include "irq_exti.h"
 
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -32,11 +35,17 @@ int main(void)
 { 
   /* Init Unit GPIO */
   GPIO_Init_v();
+  EXTI_Init_v();
 
   while (1)
   {
     mycounter++;
     if (mycounter == 100) mycounter = 0;
+    
+    while(0 == (irq_mskEXTI_u8 & USER_BTN));
+    
+    irq_mskEXTI_u8 &= ~USER_BTN;
+    
     /* PD12 to be toggled */
     GPIO_SetBits(GPIOD, GPIO_Pin_12);
     

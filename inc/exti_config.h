@@ -1,9 +1,9 @@
 /******************************************************************************
- * @file    gpio_config.h                                                     *
+ * @file    exti_config.h                                                     *
  * @author  Gulek                                                             *
  * @version 1                                                                 *
  * @date    2013-02-02                                                        *
- * @brief   This file contains export for Unit GPIO                           *
+ * @brief   This file contains export for Unit EXTI                           *
  ******************************************************************************
  *                    History:                                                *
  * - Date ----|- Version --|- Description ----------------------------------- *
@@ -12,15 +12,15 @@
  * -                                                                          *
  *****************************************************************************/
  
-#ifndef GPIO_CONFIG_H
-#define GPIO_CONFIG_H
+#ifndef EXTI_CONFIG_H
+#define EXTI_CONFIG_H
 
 
 /* exported functions */
-void GPIO_Init_v(void);
+void EXTI_Init_v(void);
 
 
 
 
-#endif // GPIO_CONFIG_H
+#endif // EXTI_CONFIG_H
 /* End of File */
