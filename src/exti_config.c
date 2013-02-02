@@ -41,10 +41,10 @@
  */
 typedef struct
 {
-  uint8_t sourcePort;
-  uint8_t sourcePin;
-  EXTI_InitTypeDef initEXTI;
-  NVIC_InitTypeDef initNVIC;
+  uint8_t           sourcePort;
+  uint8_t           sourcePin;
+  EXTI_InitTypeDef  initEXTI;
+  NVIC_InitTypeDef  initNVIC;
 } EXTI_InitData_T;
  
  

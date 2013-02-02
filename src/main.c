@@ -13,9 +13,12 @@
 
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
+#include "stm32f4xx_tim.h"
 #include "gpio_config.h"
 #include "exti_config.h"
+#include "timer_config.h"
 #include "irq_exti.h"
+
 
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -33,9 +36,11 @@ uint32_t mycounter = 0;
  */  
 int main(void)
 { 
+TIM_ClearITPendingBit(TIM2, TIM_IT_Update | TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3 | TIM_IT_CC4 | TIM_IT_COM | TIM_IT_Trigger | TIM_IT_Break);
   /* Init Unit GPIO */
   GPIO_Init_v();
   EXTI_Init_v();
+  TIMER_Init_v();
 
   while (1)
   {
@@ -43,6 +48,9 @@ int main(void)
     if (mycounter == 100) mycounter = 0;
     
     while(0 == (irq_mskEXTI_u8 & USER_BTN));
+    
+    TIM_SetCounter(TIM2, 0);
+    TIM_Cmd(TIM2, ENABLE);
     
     irq_mskEXTI_u8 &= ~USER_BTN;
     

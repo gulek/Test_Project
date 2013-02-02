@@ -65,6 +65,7 @@ SOURCES += startup.c
 SOURCES += gpio_config.c
 SOURCES += exti_config.c
 SOURCES += irq_exti.c
+SOURCES += timer_config.c
 
 OBJECTS=$(addprefix $(OBJDIR)\,$(SOURCES:.c=.o))
 
