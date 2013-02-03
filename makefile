@@ -1,13 +1,13 @@
 #******************************************************************************
 #* @file    makefile                                                          *
 #* @author  Gulek                                                             *
-#* @version 1                                                                 *
-#* @date    2013-02-02                                                        *
+#* @version 2                                                                 *
 #* @brief   This file contains the makefile for the stm32f4 test project      *
 #******************************************************************************
 #*                    History:                                                *
 #* - Date ----|- Version --|- Description ----------------------------------- *
-#* 2013-02-02 |          1 | file created                                     * 
+#* 2013-02-02 |          1 | file created                                     *
+#* 2013-02-03 |          2 | added sourcefiles                                *
 #*****************************************************************************/
 
 CC=arm-none-eabi-gcc
@@ -66,6 +66,7 @@ SOURCES += gpio_config.c
 SOURCES += exti_config.c
 SOURCES += irq_exti.c
 SOURCES += timer_config.c
+SOURCES += irq_timer.c
 
 OBJECTS=$(addprefix $(OBJDIR)\,$(SOURCES:.c=.o))
 
@@ -113,3 +114,5 @@ $(OBJDIR)\\%.a:
 clean:
 	@echo ### CLEANING ...
 	rmdir /q /s $(OBJDIR)
+	
+# End of File

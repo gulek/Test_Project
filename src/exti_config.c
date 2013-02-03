@@ -2,7 +2,6 @@
  * @file    exti_config.c                                                     *
  * @author  Gulek                                                             *
  * @version 1                                                                 *
- * @date    2013-02-02                                                        *
  * @brief   This file contains the EXTI configuration (External Interrupts)   *
  ******************************************************************************
  *                    History:                                                *
@@ -13,7 +12,7 @@
  * -                                                                          *
  *****************************************************************************/
  
-#define _file_ident_exti_
+#define _FILEIDENT_exti_config_
  
 #include "stm32f4xx_rcc.h"
 #include "misc.h"

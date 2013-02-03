@@ -1,15 +1,20 @@
 /******************************************************************************
  * @file    irq_config.c                                                      *
  * @author  Gulek                                                             *
- * @version 1                                                                 *
- * @date    2013-02-02                                                        *
+ * @version 2                                                                 *
  * @brief   This file contains the basic interrupt configuration              *
  ******************************************************************************
  *                    History:                                                *
  * - Date ----|- Version --|- Description ----------------------------------- *
  * 2013-02-02 |          1 | file created                                     * 
+ * 2013-02-03 |          2 | added error handler                              * 
+ *            |            | removed TIM2 from default handling               *
  *****************************************************************************/
 
+#define _FILEIDENT_irq_config_
+ 
+#include <stdint.h> 
+ 
 /* 
  * @brief   Top of stack. Defined in linker-file 
  */
@@ -30,6 +35,19 @@ typedef void(* const irqFunction)(void);
  * Handles all unhandled exceptions
  */
 void DefaultExceptionHandler_v(void)
+{
+  while (1) {}
+}
+
+
+/* @brief   error handler 
+ * @params  error value
+ *    @arg errorID_u32: error-id to identify the error-source
+ * @return  void
+ *
+ * Handles all errors
+ */
+void Error_Handler_v(uint32_t errorID_u32)
 {
   while (1) {}
 }
@@ -77,7 +95,7 @@ void TIM1_BRK_TIM9_IRQHandler_v(void)           __attribute__ ((interrupt, weak,
 void TIM1_UP_TIM10_IRQHandler_v(void)           __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void TIM1_TRG_COM_TIM11_IRQHandler_v(void)      __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void TIM1_CC_IRQHandler_v(void)                 __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
-void TIM2_IRQHandler_v(void)                    __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
+void TIM2_IRQHandler_v(void);
 void TIM3_IRQHandler_v(void)                    __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void TIM4_IRQHandler_v(void)                    __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));
 void I2C1_EV_IRQHandler_v(void)                 __attribute__ ((interrupt, weak, alias("DefaultExceptionHandler_v")));

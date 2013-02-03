@@ -2,8 +2,7 @@
  * @file    irq_exti.h                                                        *
  * @author  Gulek                                                             *
  * @version 1                                                                 *
- * @date    2013-02-02                                                        *
- * @brief   This file contains export for external interupt stuff             *
+ * @brief   This file contains export for external interupt                   *
  ******************************************************************************
  *                    History:                                                *
  * - Date ----|- Version --|- Description ----------------------------------- *
@@ -16,7 +15,7 @@
 #ifndef IRQ_EXTI_H
 #define IRQ_EXTI_H
 
-#ifdef _file_ident_irqexti_
+#ifdef _FILEIDENT_irq_exti_
   #define XEXTERN
 #else
   #define XEXTERN extern
@@ -25,16 +24,16 @@
 /*
  * @brief   enum for irq_mskEXTI_u8
  */
-enum IRQMsk_Enum
+enum IRQ_MskEXTI_Enum
 {
-  USER_BTN  = 1
+  USER_BTN_e  = 1
 };
 
 /* 
  * @brief   mask for captures interrupts
- *          see IRQMsk_Enum for bit identification
+ *          see IRQ_MskEXTI_Enum for bit identification
  */
-XEXTERN uint8_t irq_mskEXTI_u8;
+XEXTERN volatile uint8_t irq_mskEXTI_u8;
 
 
 #endif // IRQ_EXTI_H

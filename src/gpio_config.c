@@ -1,8 +1,7 @@
 /******************************************************************************
  * @file    gpio_config.c                                                     *
  * @author  Gulek                                                             *
- * @version 1                                                                 *
- * @date    2013-02-02                                                        *
+ * @version 2                                                                 *
  * @brief   This file contains the GPIO configuration                         *
  ******************************************************************************
  *                    History:                                                *
@@ -14,10 +13,11 @@
  * - try to make the configurations 'const' to use less ram                   *
  *****************************************************************************/
  
+#define _FILEIDENT_gpio_config_
+ 
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 
-#define _file_ident_gpio_
  
 /*
  * @brief   datatype to store a GPIO configurations

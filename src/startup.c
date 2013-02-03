@@ -1,22 +1,24 @@
 /******************************************************************************
  * @file    startup.c                                                         *
  * @author  Gulek                                                             *
- * @version 1                                                                 *
- * @date    2013-02-02                                                        *
+ * @version 2                                                                 *
  * @brief   This file contains the startup-functionality                      *
  ******************************************************************************
  *                    History:                                                *
  * - Date ----|- Version --|- Description ----------------------------------- *
  * 2013-02-02 |          1 | file created                                     * 
+ * 2013-02-03 |          2 | call error handler after main                    * 
  *****************************************************************************/
 
+#define _FILEIDENT_startup_
+ 
 #include "stm32f4xx.h"
+#include "irq_config.h"
 
 /* 
  * @brief   functions from other units
  */
 int main(void);
-void DefaultExceptionHandler_v(void);
 
 
 /* 
@@ -61,7 +63,7 @@ void Reset_Handler_v(void)
   main();
   
   /* This should never happen. main() should not return */
-  DefaultExceptionHandler_v();
+  Error_Handler_v(1);
 }
 
 /* End of File */

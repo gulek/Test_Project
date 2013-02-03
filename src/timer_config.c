@@ -1,24 +1,23 @@
 /******************************************************************************
  * @file    timer_config.c                                                    *
  * @author  Gulek                                                             *
- * @version 1                                                                 *
- * @date    2013-02-02                                                        *
+ * @version 2                                                                 *
  * @brief   This file contains the timer configuration                        *
  ******************************************************************************
  *                    History:                                                *
  * - Date ----|- Version --|- Description ----------------------------------- *
  * 2013-02-02 |          1 | file created                                     *
+ * 2013-02-03 |          2 | reconfigure TIM2 for 1Hz interrupts              *
  ******************************************************************************
  *                    ToDo:                                                   *
  * -                                                                          *
  *****************************************************************************/
 
-#define _file_ident_timer_
+#define _FILEIDENT_timer_config_
  
 #include "stm32f4xx_tim.h"
 #include "stm32f4xx_rcc.h"
 #include "misc.h"
-//#include "stm32f4xx_syscfg.h"
 
 /*
  * @brief   number of TIMER configurations
@@ -61,6 +60,10 @@ typedef struct
   TIM_TimeBaseInitTypeDef   initTIM;  
 } TIMER_InitData_T;
 
+
+/*
+ * @brief   array for all TIMER configurations
+ */
 TIMER_InitData_T TIMER_initCfg_vx[TIMER_LOCAL_NUM_CONFIGURATION] =
 {
   {
@@ -77,9 +80,9 @@ TIMER_InitData_T TIMER_initCfg_vx[TIMER_LOCAL_NUM_CONFIGURATION] =
     },
     .initTIM            =
     {
-      .TIM_Prescaler          = 0x00,
+      .TIM_Prescaler          = 84-1, /* APB1-Timer-Clock is 84MHz, so this makes 1MHz @TIM2 */
       .TIM_CounterMode        = TIM_CounterMode_Up,
-      .TIM_Period             = 24000,      
+      .TIM_Period             = 1000000 - 1, /* 1MHz down to 1Hz */
       .TIM_ClockDivision      = 0x00,
       .TIM_RepetitionCounter  = 0
     }

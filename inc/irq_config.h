@@ -1,26 +1,26 @@
 /******************************************************************************
- * @file    timer_config.h                                                    *
+ * @file    irq_config.h                                                      *
  * @author  Gulek                                                             *
  * @version 1                                                                 *
- * @brief   This file contains export for Unit TIMER                          *
+ * @brief   This file contains export for general interrupt config            *
  ******************************************************************************
  *                    History:                                                *
  * - Date ----|- Version --|- Description ----------------------------------- *
- * 2013-02-02 |          1 | file created                                     *
+ * 2013-02-03 |          1 | file created                                     *
  ******************************************************************************
  *                    ToDo:                                                   *
  * -                                                                          *
  *****************************************************************************/
  
-#ifndef TIMER_CONFIG_H
-#define TIMER_CONFIG_H
+#ifndef IRQ_CONFIG_H
+#define IRQ_CONFIG_H
 
 
 /* exported functions */
-void TIMER_Init_v(void);
+void Error_Handler_v(uint32_t errorID_u32);
 
 
 
 
-#endif // TIMER_CONFIG_H
+#endif // IRQ_CONFIG_H
 /* End of File */
